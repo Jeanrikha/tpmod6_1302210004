@@ -15,14 +15,13 @@ namespace tpmodul6_130221004
 
         public SayaTubeVideo(string title)
         {
-            Contract.Requires<ArgumentOutOfRangeException>(title.Length <= 100, "title");
-            Contract.Requires<ArgumentNullException>(title != null);
+            Contract.Requires(title.Length <= 100, "title");
+            Contract.Requires(title != null);
             this.title = title;
             Random random = new Random();
             id = random.Next(10000, 99999);
             playCount = 0;
         }
-
         public void increasePlayCount(int playCount)
         {
             Contract.Requires(playCount < 10000000);
@@ -38,10 +37,11 @@ namespace tpmodul6_130221004
                 Console.WriteLine("Sudah sampai batas pemutaran");
             }
         }
-
         public void printVideoDetails()
         {
-            Console.WriteLine("Video berjudul " + title + " diputar " + playCount + " kali dengan id video " + id);
+            Console.WriteLine("ID Video\t: " + id);
+            Console.WriteLine("Judul Video\t: " + title);
+            Console.WriteLine("View Video\t: " + playCount);
         }
 
     }
